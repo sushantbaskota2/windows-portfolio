@@ -1,0 +1,441 @@
+$taskbar-blue: #2c59d6;
+$startbutton-bg: #44ae40;
+$statusbar-blue: #218bdf;
+$applist-blue: #3563db;
+$body-brown: #ebe8d7;
+$tab-color: #fafbf6;
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    // color: $taskbar-blue;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+    background-image: url("./wallpaper/xp.jpg");
+}
+
+#root {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.taskbar {
+    height: 6%;
+    width: 100%;
+    z-index: 100;
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $taskbar-blue 15%);
+    display: flex;
+    bottom: 0;
+    justify-content: space-between;
+}
+
+.start-button {
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-self: center;
+    width: 10rem;
+    padding-left: 0.5rem;
+    border-top-right-radius: 25rem;
+    border-bottom-right-radius: 25rem;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $startbutton-bg 15%);
+
+    &:hover {
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.4), $startbutton-bg 30%);
+    }
+
+    img {
+        align-self: center;
+        width: 2.3rem;
+        height: 2.3rem;
+    }
+
+    span {
+        align-self: center;
+        padding-left: 1rem;
+        // padding-bottom: 0.5rem;
+        font-size: 1.6rem;
+    }
+}
+
+.app-list-nav {
+    align-self: center;
+    justify-content: left;
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    display: flex;
+    flex-direction: row;
+
+
+    .app {
+        display: flex;
+        align-self: center;
+        width: 12rem;
+        margin-right: 0.25rem;
+        cursor: pointer;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $applist-blue 15%);
+        height: 100%;
+        transition: 250ms;
+
+        &:hover {
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $applist-blue 30%);
+        }
+
+        img {
+            width: 2rem;
+            align-self: center;
+            height: 2rem;
+            margin: 0 1rem;
+        }
+
+        span {
+            align-self: center;
+        }
+    }
+}
+
+.statusbar {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $statusbar-blue 15%);
+    width: 20rem;
+    height: 100%;
+    display: flex;
+
+    .icons {
+        align-self: center;
+        padding: 0 0.5em 0 0.5em;
+    }
+
+    .datetime {
+        padding: 0.5rem;
+        padding-bottom: 0;
+        display: flex;
+        flex-direction: column;
+
+        span {
+            align-self: center;
+        }
+    }
+}
+
+.desktop {
+    width: 100%;
+
+    .icons {
+        display: flex;
+        margin: 2rem;
+
+        .icon {
+            display: flex;
+            cursor: pointer;
+            align-self: center;
+            flex-direction: column;
+
+            img {
+                align-self: center;
+                width: 2.5rem;
+                margin-bottom: 0.5rem;
+                text-shadow: rgba(255, 255, 255, 0.4);
+            }
+
+            span {
+                margin: 1px;
+
+                &:hover {
+                    margin: 0px;
+                    background-color: $statusbar-blue;
+                    border: 1px solid gray;
+                }
+            }
+        }
+    }
+
+    .modal {
+        position: absolute;
+        height: 80%;
+        left: 10%;
+        top: 5%;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        border-top-right-radius: 1rem;
+        border-top-left-radius: 1rem;
+        border: 0.4rem solid $taskbar-blue;
+
+        animation: fadeInUp 0.52s;
+        // animation: opacity 0.5s ease-in;
+
+
+        .titlebar {
+            height: 6%;
+            width: 100%;
+            background-color: $taskbar-blue;
+            padding-left: 1rem;
+            // padding-top: 0.4rem;
+            // border-radius: 1rem;
+            font-size: 1.6rem;
+            border-top-right-radius: 0.2rem;
+            border-top-left-radius: 0.2rem;
+            display: flex;
+            justify-content: space-between;
+
+            .title {
+                margin-top: 0.4rem;
+            }
+
+            .buttons {
+                display: flex;
+                margin-right: 1rem;
+
+                .button {
+                    // margin: 0.2rem;
+                    border: lightgrey solid 1px;
+                    width: 2.5rem;
+                    border-radius: 3px;
+                    align-self: center;
+                    margin-left: 0.5rem;
+                    height: 2.5rem;
+                    font-size: 3rem;
+                    display: flex;
+                    position: relative;
+                    cursor: pointer;
+
+                    &:hover {
+                        // opacity: 1;
+
+                        &::after {
+                            content: "";
+                            background-color: rgba(255, 255, 255, 0.4);
+                            z-index: 1000;
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            opacity: 1;
+
+
+                        }
+                    }
+
+
+
+
+                    &.minimize {
+                        background-color: $applist-blue;
+                        display: flex;
+                        position: relative;
+                        justify-content: center;
+
+
+
+                        span {
+                            // content: "-";
+                            width: 1.5rem;
+                            position: absolute;
+                            align-self: flex-end;
+                            bottom: 0.5rem;
+                            // align-self: center;
+                            height: 0.3rem;
+                            background-color: white;
+                        }
+                    }
+
+                    &.stop {
+                        background-color: #fc4559;
+                        position: relative;
+                        display: flex;
+                        justify-content: center;
+
+                        span {
+                            // content: "X";
+                            align-self: center;
+                            position: absolute;
+                            font-size: 2rem;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+        .body {
+            height: 95%;
+            width: 100%;
+            background-color: $body-brown;
+            padding: 1rem;
+            color: black;
+
+            .tabs {
+                display: flex;
+
+                .tab {
+                    border-radius: 0.5rem 0.5rem 0 0;
+                    background: radial-gradient($tab-color, #eee 15%);
+                    border: 0.1px solid lightgray;
+                    border-bottom: 0.1px solid darken(lightgray, 9);
+                    padding: 0.5rem;
+                    cursor: pointer;
+                    margin-right: 0.1rem;
+
+                    &.active {
+                        background: white;
+                        border-bottom: 0;
+                        border-top: 3px solid lightsalmon;
+                    }
+                }
+            }
+
+            .body-info {
+                height: 95%;
+                border: 0.1px solid lightgray;
+                padding: 1rem;
+
+                .quick-facts {
+                    position: relative;
+                    display: flex;
+                    margin-top: 1rem;
+                    border: 0.2rem solid lightgray;
+                    height: 95%;
+                    border-radius: 5px;
+
+                    .title {
+                        position: absolute;
+                        //
+                        background-color: $body-brown;
+                        color: blue;
+                        top: -1rem;
+                        left: 1rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .startBar {
+        position: absolute;
+        bottom: 6%;
+        height: 70%;
+        width: 30%;
+        z-index: 1;
+        // overflow-y: unset;
+        // padding: 2rem;
+
+        display: flex;
+        flex-direction: column;
+        background-color: gray;
+        // animation-name: fadeInUp;
+        animation-duration: 0.52s;
+        transform-origin: bottom;
+
+        // &.active {
+        //     animation-name: fadeInUp;
+        //     animation-duration: 0.5s;
+        //     // animation-direction: reverse;
+        // }
+
+        // transition: ease-in;
+
+        // animation-name: fadeOutDown;
+        // animation-duration: 0.5s;
+        // transition: ease-in-out;
+        .top,
+        .bottom {
+            height: 13%;
+            // align-self: center;
+            width: 100%;
+            padding: 1rem 0 0 1rem;
+            display: flex;
+            background: linear-gradient(to bottom, #1663cd, #3b82dc);
+
+            img {
+                width: 3rem;
+                height: 3rem;
+                border-radius: 100rem;
+                align-self: center;
+            }
+
+            span {
+                align-self: center;
+                font-size: 2rem;
+                padding-left: 1rem;
+            }
+        }
+
+        .body {
+            height: 75%;
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+
+            .left {
+                width: 50%;
+                background-color: white;
+            }
+
+            .right {
+                width: 50%;
+                background-color: #cde0e6;
+            }
+        }
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: scaleY(0);
+    }
+
+    // 10% {
+    //     transform: scaleY(0.1);
+    // }
+
+    // 50% {
+    //     transform: scaleY(0.5);
+    // }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes fadeOutDown {
+    0% {
+        transform: scaleY(1);
+    }
+
+    // 10% {
+    //     transform: scaleY(0.1);
+    // }
+
+    // 50% {
+    //     transform: scaleY(0.5);
+    // }
+    100% {
+        transform: scaleY(0);
+    }
+}
+
+// @keyframes fadeOutDown {
+//     0% {
+//         transform: translateY(0);
+//     }
+//     50% {
+//         transform: translateY(50%);
+//     }
+
+//     100% {
+//         transform: translateY(70%);
+//     }
+// }
