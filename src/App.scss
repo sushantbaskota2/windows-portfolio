@@ -80,7 +80,6 @@ body {
     display: flex;
     flex-direction: row;
 
-
     .app {
         display: flex;
         align-self: center;
@@ -90,9 +89,19 @@ body {
         background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $applist-blue 15%);
         height: 100%;
         transition: 250ms;
+        position: relative;
 
         &:hover {
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), $applist-blue 30%);
+        }
+
+        &.minimize {
+            &::after {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(255, 255, 255, 0.4);
+            }
         }
 
         img {
@@ -131,6 +140,83 @@ body {
     }
 }
 
+.login {
+    background: radial-gradient(circle at top left, #87a8eb, #5a7edc 15%);
+    width: 100%;
+    height: 100%;
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .top,
+    .bottom {
+        width: 100%;
+        height: 10%;
+        background-color: #01309a;
+    }
+
+    .body {
+        height: 80%;
+        display: flex;
+        flex-direction: row;
+
+        .left {
+            display: flex;
+            align-self: center;
+            height: 80%;
+            justify-content: flex-end;
+            width: 50%;
+            border-right: 1px solid lightgray;
+            // flex-direction: column;
+
+            div {
+                align-self: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                font-size: 2rem;
+            }
+
+            img {
+                object-fit: cover;
+                height: max-content;
+                align-self: center;
+                margin-right: 5rem;
+            }
+        }
+
+        .right {
+            width: 50%;
+            height: 100%;
+            display: flex;
+
+            div {
+                display: flex;
+                align-self: center;
+                margin: 5rem;
+                padding: 2rem;
+                cursor: pointer;
+
+                &:hover {
+                    background: darken($color: #5a7edc, $amount: 2);
+                }
+
+                img {
+                    width: 8rem;
+                    border: 2px solid white;
+                    border-radius: 2px;
+                }
+
+                span {
+                    font-size: 2.5rem;
+                    margin: 1rem;
+                }
+            }
+        }
+    }
+}
+
 .desktop {
     width: 100%;
 
@@ -165,7 +251,7 @@ body {
 
     .modal {
         position: absolute;
-        height: 80%;
+        height: 87%;
         left: 10%;
         top: 5%;
         width: 80%;
@@ -174,10 +260,9 @@ body {
         border-top-right-radius: 1rem;
         border-top-left-radius: 1rem;
         border: 0.4rem solid $taskbar-blue;
-
+        transform-origin: top;
         animation: fadeInUp 0.52s;
         // animation: opacity 0.5s ease-in;
-
 
         .titlebar {
             height: 6%;
@@ -224,21 +309,14 @@ body {
                             width: 100%;
                             height: 100%;
                             opacity: 1;
-
-
                         }
                     }
-
-
-
 
                     &.minimize {
                         background-color: $applist-blue;
                         display: flex;
                         position: relative;
                         justify-content: center;
-
-
 
                         span {
                             // content: "-";
@@ -302,6 +380,110 @@ body {
                 border: 0.1px solid lightgray;
                 padding: 1rem;
 
+                .projects {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+                    height: 100%;
+                    flex-wrap: wrap;
+                }
+
+                .project {
+                    background-color: white;
+                    height: max-content;
+                    width: 32%;
+                    padding: 1rem;
+                    border-radius: 1rem;
+                    box-shadow: 1px 2px 1.5rem;
+                    display: flex;
+                    margin-bottom: 1.5rem;
+                    transition: transform 0.1s;
+
+                    &:hover {
+                        transform: scale(1.02);
+                    }
+
+                    .icon {
+                        align-self: center;
+
+                        img {
+                            width: 6rem;
+                        }
+                    }
+
+                    .desc {
+                        div {
+                            margin-bottom: 0.25rem;
+                        }
+
+                        .project-link {
+                            a {
+                                text-decoration: none;
+                                color: green;
+                            }
+                        }
+
+                        .project-name {
+                            font-weight: bolder;
+                            font-size: 2rem;
+                        }
+                    }
+                }
+
+                .card {
+                    display: flex;
+                    width: 100%;
+                    flex-direction: column;
+                    text-align: center;
+
+                    .header {
+                        width: 100%;
+                        align-self: flex-start;
+                        justify-content: center;
+                        display: flex;
+
+                        img {
+                            width: 15rem;
+                        }
+
+                        span {
+                            font-size: 3rem;
+                            align-self: center;
+                            font-weight: 600;
+                        }
+                    }
+
+                    .facts {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        width: 100%;
+                        margin-top: 2rem;
+
+                        .fact {
+                            width: 100%;
+                            margin-left: 25%;
+
+                            ul {
+                                margin: 0;
+                                text-align: left;
+                            }
+
+                            display: flex;
+                            justify-content: left;
+
+                            span {
+                                padding: 0;
+                            }
+
+                            .head {
+                                font-weight: bolder;
+                                margin-right: 1rem;
+                            }
+                        }
+                    }
+                }
+
                 .quick-facts {
                     position: relative;
                     display: flex;
@@ -309,6 +491,8 @@ body {
                     border: 0.2rem solid lightgray;
                     height: 95%;
                     border-radius: 5px;
+                    padding: 2rem;
+                    padding-bottom: 0;
 
                     .title {
                         position: absolute;
@@ -317,6 +501,57 @@ body {
                         color: blue;
                         top: -1rem;
                         left: 1rem;
+                    }
+
+                    .facts {
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        width: 100%;
+                        text-align: center;
+                        font-size: 1.6rem;
+
+                        fact {
+                            align-self: center;
+                            display: inline-flex;
+                            justify-content: space-evenly;
+                            width: 100%;
+
+                            span {
+                                align-self: center;
+                            }
+                        }
+                    }
+
+                    .github {
+                        display: flex;
+                        height: 98%;
+                        flex-wrap: wrap;
+                        padding: 1rem;
+                        overflow-y: scroll;
+
+                        .repo {
+                            background-color: #eee;
+                            padding: 1rem;
+                            width: 17rem;
+                            font-size: 1.5rem;
+                            height: 6rem;
+                            cursor: pointer;
+                            box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
+                            transition: ease-in 0.5ms;
+                            transition: tra 0.2s ease-in-out;
+                            margin-right: 1rem;
+
+                            &:hover {
+                                transform: scale(1.05);
+                            }
+
+                            a {
+                                text-decoration: none;
+                                color: black;
+                                padding-left: 1rem;
+                            }
+                        }
                     }
                 }
             }
@@ -339,6 +574,43 @@ body {
         animation-duration: 0.52s;
         transform-origin: bottom;
 
+        .body {
+            .left,
+            .right {
+                display: flex;
+                justify-content: flex-start;
+                flex-direction: column;
+                width: 100%;
+                color: black;
+
+                .header {
+                    width: 100%;
+                    padding: 1rem;
+                    font-weight: 600;
+                    text-align: left;
+                    font-size: 2rem;
+                }
+
+                .apps {
+                    font-size: 1.8rem;
+                    padding: 1rem;
+
+                    .app {
+                        margin-bottom: 1rem;
+
+                        i {
+                            height: 100%;
+                            color: blue;
+                        }
+
+                        span {
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
         // &.active {
         //     animation-name: fadeInUp;
         //     animation-duration: 0.5s;
@@ -350,8 +622,7 @@ body {
         // animation-name: fadeOutDown;
         // animation-duration: 0.5s;
         // transition: ease-in-out;
-        .top,
-        .bottom {
+        .top {
             height: 13%;
             // align-self: center;
             width: 100%;
@@ -370,6 +641,36 @@ body {
                 align-self: center;
                 font-size: 2rem;
                 padding-left: 1rem;
+            }
+        }
+
+        .bottom {
+            height: 13%;
+            // align-self: center;
+            width: 100%;
+            padding: 1rem 0 0 1rem;
+            display: flex;
+            background: linear-gradient(to bottom, #1663cd, #3b82dc);
+            justify-content: flex-end;
+
+            div {
+                align-self: center;
+                display: flex;
+                cursor: pointer;
+
+                img {
+                    width: 4rem;
+                    height: 4rem;
+                    border-radius: 1rem;
+                    align-self: center;
+                }
+
+                span {
+                    align-self: center;
+                    font-size: 1.4rem;
+                    padding-left: 1rem;
+                    margin-right: 2rem;
+                }
             }
         }
 

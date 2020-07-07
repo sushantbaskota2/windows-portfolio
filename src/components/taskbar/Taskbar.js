@@ -1,20 +1,19 @@
 import React from 'react';
 
-const Taskbar = ({ windowsOpen, startbar, setstartbar }) => {
-    const createWindows = () => {
-        const windows = [];
-        for (let i = 0; i < windowsOpen; i++) {
-            windows.push(
-                <React.Fragment key={i}>
-                    <img src='./icons/windowsXP/folder.png' />
-                    <span>Resume</span>
-                </React.Fragment>
-            );
-            console.log(windowsOpen);
-            console.log(windows);
-        }
-        return windows;
-    };
+const Taskbar = ({ setMinimize, minimize, windowsOpen, startbar, setstartbar }) => {
+    // const createWindows = () => {
+    //     const windows = [];
+    //     for (let i = 0; i < windowsOpen; i++) {
+    //         windows.push(
+    //             <React.Fragment key={i}>
+
+    //             </React.Fragment>
+    //         );
+    //         console.log(windowsOpen);
+    //         console.log(windows);
+    //     }
+    //     return windows;
+    // };
     return (
         <div className='taskbar'>
             <div className='start-button' onClick={() => setstartbar(!startbar)}>
@@ -22,11 +21,18 @@ const Taskbar = ({ windowsOpen, startbar, setstartbar }) => {
                 <span>Start</span>
             </div>
             <div className='app-list-nav'>
-                {createWindows().map((e, i) => (
-                    <div className='app' key={Math.random()}>
-                        {e}
+                {windowsOpen ? (
+                    <div
+                        onClick={() => setMinimize(!minimize)}
+                        className={`app ${minimize ? 'minimize' : ''}`}
+                        key={Math.random()}
+                    >
+                        <img src='./icons/windowsXP/folder.png' />
+                        <span>Resume</span>
                     </div>
-                ))}
+                ) : (
+                    ''
+                )}
             </div>
             <div className='statusbar'>
                 <div className='icons'>

@@ -1,16 +1,16 @@
 import React from 'react';
 
-const TitleBar = ({ setWindowsOpen }) => {
+const TitleBar = ({ setWindowsOpen, setMinimize }) => {
     return (
         <div className='titlebar'>
             <div className='title'>
                 <span className='title'>Sushant Baskota</span>
             </div>
             <div className='buttons'>
-                <div className='button minimize'>
+                <div className='button minimize' onClick={() => setMinimize(true)}>
                     <span />
                 </div>
-                <div className='button stop' onClick={() => setWindowsOpen(0)}>
+                <div className='button stop' onClick={() => setWindowsOpen(false)}>
                     <span>X</span>
                 </div>
             </div>

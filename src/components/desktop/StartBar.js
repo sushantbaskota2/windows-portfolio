@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 
-const StartBar = ({ startbar }) => {
+const StartBar = ({ startbar, setLoggedOn }) => {
     const onAnimationEnd = () => {
         if (!startbar) setRender(false);
     };
 
     const [ shouldRender, setRender ] = useState(startbar);
-    console.log(shouldRender, startbar);
     useEffect(
         () => {
             if (startbar) setRender(true);
@@ -26,10 +25,48 @@ const StartBar = ({ startbar }) => {
                     <span>Sushant </span>
                 </div>
                 <div className='body'>
-                    <div className='left'>hero</div>
-                    <div className='right'>hero</div>
+                    <div className='left'>
+                        <span className='header'>Interests</span>
+
+                        <div className='apps'>
+                            <div className='app'>
+                                <i class='fas fa-code' />
+                                <span> Web Development</span>
+                            </div>
+                            <div className='app'>
+                                <i class='fas fa-code' />
+                                <span> Coding</span>
+                            </div>
+                            <div className='app'>
+                                <i class='fas fa-code' />
+                                <span> Machine Learning</span>
+                            </div>
+                            <div className='app'>
+                                <i class='fas fa-code' />
+                                <span>Data Analytics and Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='right'>
+                        <span className='header'>Hobbies</span>
+                        <div className='apps'>
+                            <div className='app'>
+                                <i class='fas fa-futbol' />
+                                <span> Football (Soccer)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className='bottom'>LOgout</div>
+                <div className='bottom'>
+                    <div
+                        onClick={() => {
+                            setLoggedOn(false);
+                        }}
+                    >
+                        <img src='./icons/windowsXP/logoff.jpg' />
+                        <span>Logoff</span>
+                    </div>
+                </div>
             </div>
         )
     );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Contents from './Contents';
 import Tab from './Tab';
 import { TABS } from '../../../constants';
@@ -13,7 +13,7 @@ const Body = () => {
                     return <Tab title={a} active={hero} setactiveTab={setactiveTab} />;
                 })}
             </div>
-            <Contents />
+            <Contents activeTab={activeTab} />
         </div>
     );
 };
