@@ -1,4 +1,4 @@
-const TABS = [ 'Overview', 'Education', 'Experiences', 'Skills', 'Project', 'Github' ];
+const TABS = [ 'Overview', 'Education', 'Skills', 'Project', 'Github' ];
 const CONTENTS_FACTS = {
     Overview: {
         Name: 'Sushant Baskota',

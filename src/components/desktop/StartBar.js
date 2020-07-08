@@ -51,8 +51,12 @@ const StartBar = ({ startbar, setLoggedOn }) => {
                         <span className='header'>Hobbies</span>
                         <div className='apps'>
                             <div className='app'>
-                                <i class='fas fa-futbol' />
+                                <i class='fas fa-futbol' style={{ color: 'black' }} />
                                 <span> Football (Soccer)</span>
+                            </div>
+                            <div className='app'>
+                                <i class='fas fa-gamepad' style={{ color: 'red' }} />
+                                <span> Video Games</span>
                             </div>
                         </div>
                     </div>

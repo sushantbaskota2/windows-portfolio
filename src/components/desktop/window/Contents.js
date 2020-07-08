@@ -103,6 +103,143 @@ const Contents = ({ activeTab }) => {
                 </div>
             </div>
         );
+    } else if (activeTab === 'Experiences') {
+        return (
+            <div className='body-info'>
+                <div className='info' />
+                <div className='quick-facts'>
+                    <span className='title'>Experiences</span>
+                    <div className='experiences' />
+                </div>
+            </div>
+        );
+    } else if (activeTab === 'Skills') {
+        return (
+            <div className='body-info'>
+                <div className='info' />
+                <div className='quick-facts'>
+                    <span className='title'>Skills</span>
+                    <div className='skills'>
+                        <div className='top'>
+                            <div className='left'>
+                                <span className='header'>I am proficient in</span>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-react' style={{ color: 'lightblue' }} />{' '}
+                                            <span>React (Redux, Hooks, Provider)</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-node' style={{ color: 'green' }} />
+                                            <span>Node.js (Express)</span>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/color/48/000000/mongodb.png' />
+                                            <span>MongoDB</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/dotty/80/000000/sql.png' />
+                                            <span>MySQL</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-css3-alt' style={{ color: 'red' }} />
+                                            <span>HTML5, CSS3, SASS</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-java' style={{ color: 'brown' }} />
+                                            <span>Java</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='right'>
+                                <span className='header'>I am skilled in</span>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-python' />
+                                            <span>Python</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <i class='fab fa-php' style={{ color: ' blue' }} />
+                                            <span>PHP</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/color/48/000000/flutter.png' />
+                                            <span>Flutter</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className='bottom'>
+                            <div className='left'>
+                                <span className='header'>Skills I am learning</span>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/color/48/000000/graphql.png' />
+                                            <span>GraphQL</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src='https://yahya-gilany.com/img/stack/d3.png' />
+                                            <span>D3.js</span>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/cute-clipart/64/000000/react-native.png' />
+                                            <span>React Native</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='right'>
+                                <span className='header'>Skills I want to learn</span>
+                                <ul>
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/color/48/000000/angularjs.png' />
+                                            <span>Angular</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src='https://img.icons8.com/color/48/000000/typescript.png' />
+                                            <span>TypeScript</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div>
+                                            <img src='https://miro.medium.com/max/449/1*Bh_B98GcAHTzYq21D79GLg.png' />
+                                            <span>TensorFlow</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     } else {
         return (
             <div className='body-info'>

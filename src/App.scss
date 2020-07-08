@@ -5,12 +5,15 @@ $applist-blue: #3563db;
 $body-brown: #ebe8d7;
 $tab-color: #fafbf6;
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 html {
     font-size: 62.5%;
+    font-family: 'Roboto Slab', sans-serif;
 }
 
 body {
@@ -380,6 +383,56 @@ body {
                 border: 0.1px solid lightgray;
                 padding: 1rem;
 
+                .skills {
+                    width: 100%;
+
+                    .top,
+                    .bottom {
+                        display: flex;
+                        // height: 50%;
+                        justify-content: left;
+                        text-align: left;
+
+                        .left,
+                        .right {
+                            width: 50%;
+
+                            .header {
+                                font-size: 2rem;
+                                font-weight: bolder;
+                            }
+
+                            ul {
+                                font-size: 1.6rem;
+                                list-style-type: none;
+
+                                li {
+                                    div {
+                                        display: flex;
+
+                                        * {
+                                            align-self: center;
+                                        }
+                                    }
+                                }
+
+                                i {
+                                    font-size: 4rem;
+                                    margin-right: 2rem;
+                                    color: #bbb80a;
+                                    width: 4rem;
+                                    text-align: center;
+                                    // font-weight: bolder;
+                                }
+                                img {
+                                    width: 4rem;
+                                    margin-right: 2rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
                 .projects {
                     display: flex;
                     flex-direction: column;
@@ -461,7 +514,7 @@ body {
                         margin-top: 2rem;
 
                         .fact {
-                            width: 100%;
+                            // width: 100%;
                             margin-left: 25%;
 
                             ul {

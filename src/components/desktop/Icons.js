@@ -12,8 +12,8 @@ const Icons = ({ minimize, setMinimize, setWindowsOpen }) => {
                     setWindowsOpen(true);
                 }}
             >
-                <img src='./icons/windowsXP/folder.png' />
-                <span>New Folder</span>
+                <img src='https://img.icons8.com/bubbles/2x/resume.png' style={{ width: '4rem' }} />
+                <span>Resume</span>
             </div>
         </div>
     );
